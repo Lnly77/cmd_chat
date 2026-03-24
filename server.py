@@ -7,7 +7,8 @@ def start_server():
     server.listen(5)
     print("server is running on port 5000...") # running
 
-    while True:
+    is_active = True
+    while is_active:
         client, addr = server.accept()
         raw_data = client.recv(1024).decode('utf-8')
         if ":" in raw_data:
